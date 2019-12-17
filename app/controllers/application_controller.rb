@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
     end
 
     def get_current_user
-        User.find_by(remember_token: cookies[:remember_token])
+        if cookies[:remember_token]
+            User.find_by(remember_token: cookies[:remember_token])
+        else 
+            @current_user = nil
+        end
     end
 
     def current_user

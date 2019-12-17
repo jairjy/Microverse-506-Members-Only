@@ -2,12 +2,15 @@
 <p>Find me in app/views/posts/new.html.erb</p>
 
 <%= form_for :post do |f|%>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
   <%= f.label :title %>
   <%= f.text_field (:title) %>
 
   <%= f.label :body %>
-  <%= f.text_area (:body, size: "20") %>
+  <%= f.text_area :body%>
+  <div>
+  <%= f.submit 'submit post' %>
+  </div>
 
-  <%= f.summit 'summit post' %>
-
-<%= end %>
+<% end %>

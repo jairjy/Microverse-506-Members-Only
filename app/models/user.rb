@@ -12,6 +12,6 @@ class User < ApplicationRecord
 
   def self.create_token
     user_token = SecureRandom.urlsafe_base64
-    digested_token = Digest::SHA1.hexdigest user_token
+    Digest::SHA1.hexdigest user_token
   end
 end
