@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_secure_password
 
   def generate_token
-    self.remember_token = create_token
+    self.remember_token = User.create_token
   end
 
   def self.create_token
