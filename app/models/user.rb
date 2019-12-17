@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   before_create :generate_token
   validates :name, presence: true, length: { maximum: 25 }, uniqueness: true
