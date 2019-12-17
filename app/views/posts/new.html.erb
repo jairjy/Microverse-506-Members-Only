@@ -2,8 +2,6 @@
 <p>Find me in app/views/posts/new.html.erb</p>
 
 <%= form_for :post do |f|%>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-
   <%= f.label :title %>
   <%= f.text_field (:title) %>
 

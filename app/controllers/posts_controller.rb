@@ -9,7 +9,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
+    @user = current_user
+    if @user.posts.build(post_params).save
       redirect_to posts_path
     else
       flash.now[:error] = 'Error saving the post'
@@ -30,6 +31,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id)
+    params.require(:post).permit(:title, :body)
   end
 end
