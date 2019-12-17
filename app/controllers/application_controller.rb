@@ -19,5 +19,9 @@ class ApplicationController < ActionController::Base
         cookies[:remember_token] = nil
     end
 
+    def logged_in?
+        !current_user.nil?
+    end
+
     helper_method :current_user
 end
