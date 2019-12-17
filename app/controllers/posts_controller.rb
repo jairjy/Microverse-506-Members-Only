@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  # include post_helper
+
   before_action :logged_in_user, only: [:edit, :index, :new]
 
   def new
