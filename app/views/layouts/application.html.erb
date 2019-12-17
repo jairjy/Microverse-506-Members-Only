@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= render 'layouts/nav' %>
     <% flash.each do |key, val| %>
       <div class="alert alert-<%= key %>"><%= val %></div>
     <% end %>

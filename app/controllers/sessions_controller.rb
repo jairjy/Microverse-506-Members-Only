@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   def new
     @session
   end
-#session"=>{"email"=>"sarah@mail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
 
@@ -16,5 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    sign_out
+    redirect_to login_path
   end
 end

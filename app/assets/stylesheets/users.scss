@@ -1,3 +1,34 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    *, * > * {
+        box-sizing: border-box;
+    }
+}
+
+.top-nav {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background-color: #232330;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
+
+        li {
+            list-style: none;
+            color: white;
+            &:hover {
+                color: #eeaf3a;
+            }
+        }
+    }
+}
