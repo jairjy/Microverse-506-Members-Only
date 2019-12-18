@@ -24,12 +24,14 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  # rubocop:disable Style/GuardClause
   def logged_in_user
-    return if logged_in?
-
-    flash[:error] = 'Please log in to see this'
-    redirect_to login_path
+    unless logged_in?
+      flash[:error] = 'Please log in to see this'
+      redirect_to login_path
+    end
   end
+  # rubocop:enable Style/GuardClause
 
   private
 

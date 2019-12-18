@@ -1,5 +1,6 @@
 <nav class="top-nav">
     <ul>
+    <li><%= link_to 'Posts', posts_path %></li>
 <% if current_user %>
         <li>
             Logged-in as: <%= current_user.name.capitalize %>

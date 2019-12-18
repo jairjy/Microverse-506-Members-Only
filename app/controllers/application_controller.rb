@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     new_token = User.create_token
     user.update_attributes(remember_token: new_token)
     cookies.permanent[:remember_token] = new_token
-    retrive_user
+    @current_user = user
   end
 
   def retrive_user
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def sign_out
     @current_user = nil
-    cookies[:remember_token] = nil
+    cookies.delete(:remember_token)
   end
 
   def logged_in?
