@@ -1,0 +1,25 @@
+<h1>All Posts <%= @posts&.count %></h1>
+
+<% if current_user %>
+    <strong><%= link_to 'Write a new post', posts_new_path %></strong>
+<% else %>
+    <strong><%= link_to 'Login to write a post', login_path %></strong>
+<% end %>
+
+
+<% @posts&.each do |post| %>
+    <h3> 
+        <%= post.title %>
+    </h3>
+    <% if current_user %>
+        <small>
+            <%= post.user.name.capitalize %>
+        </small>
+    <% else %>
+        <small class="secret">Want to see who wrote this? <%= link_to 'Sign up today...',signup_path, method: :get %></small>
+    <% end %>
+    <p>
+        <%= post.body %>
+    </p>
+    <hr>
+<% end %>
